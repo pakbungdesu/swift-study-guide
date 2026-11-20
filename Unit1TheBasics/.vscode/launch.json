@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:Unit1TheBasics}",
+            "name": "Debug Unit1TheBasics",
+            "target": "Unit1TheBasics",
+            "configuration": "debug",
+            "preLaunchTask": "swift: Build Debug Unit1TheBasics"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:Unit1TheBasics}",
+            "name": "Release Unit1TheBasics",
+            "target": "Unit1TheBasics",
+            "configuration": "release",
+            "preLaunchTask": "swift: Build Release Unit1TheBasics"
+        }
+    ]
+}
