@@ -47,7 +47,29 @@
 * **Optional Binding (`if let` / `if var`):** Safely unwraps the value into a temporary local variable inside the `if` block (supports shorthand `if let sasukeAgeInt`).
 * **Early Exit (`guard let`):** Unwraps the value for the rest of the current scope, or exits early via `return` or `fatalError` if `nil`.
 * **Force Unwrapping (`!`):** Extracts the value directly (`narutoAgeInt!`), crashing at runtime if it is `nil`.
+* More rules about unwrapping
+    1. **Under the hood, it is always `Optional<String>` (until forced into a `String`)**
+        * Checking `type(of: sasukeAssumedString)` always returns `Optional<String>` (there is no longer a separate `ImplicitlyUnwrappedOptional` type).
+        * When passed into a function that accepts `Any` parameters, such as `print(...)`, it does not auto-unwrap and instead prints as `Optional("...")`.
 
+
+    2. **Two-Step Type Checking Mechanism (Converted to `String` only when necessary)**
+        Swift always treats a `String!` variable as `Optional<String>` first, and only auto-unwraps it into a `String` when the context does not support an Optional:
+        * **Operator `+`:** Only accepts `String + String` (not Optionals), so the system immediately auto-unwraps them, making `sasukeAssumedString + sasukeAssumedString2` evaluate to a `String`.
+        * **Operators `==` and `!= nil`:** Already support Optionals, so the system does not need to unwrap them and can compare them directly as Optionals.
+
+
+    3. **The Destination Variable's Type Determines Its State**
+        * If explicitly annotated as `String!` (such as `temptString1` or `sasukeAssumedString3`), even if the value on the right is a plain `String`, the system still re-wraps it into an `Optional<String>`.
+        * Conversely, if the destination variable is a `String` (such as `sasukeImplicitString`), the system immediately auto-unwraps it.
+
+
+    4. **Type Inference (`var x = ...`) Follows the Unwrapped Value**
+        * In the line `var sasukeAssumedString4 = sasukeAssumedString!`, the `!` forces the expression on the right to become a `String`. Since no explicit type is specified for `sasukeAssumedString4`, the compiler infers it as a regular `String` (not `String!`).
+
+
+    5. **A Single `!` Unwraps Completely (Do Not Use `!!`)**
+        * Appending `!` (`sasukeAssumedString!`) immediately converts the value from `Optional<String>` to `String`.
 
 
 ### 9. Nil-Coalescing Operator (`??`)

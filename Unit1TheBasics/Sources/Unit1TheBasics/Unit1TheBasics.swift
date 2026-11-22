@@ -3,6 +3,83 @@
 
 @main
 struct Unit1TheBasics {
+    static func testImplicitlyUnwrapOptional(){
+        
+    var sasukeAssumedString: String! = "An implicitly unwrapped optional string."
+    var sasukeImplicitString: String = sasukeAssumedString
+
+    var sasukeAssumedString2: String! = "An implicitly unwrapped optional string."
+
+    // An implicitly unwrapped optional string.An implicitly unwrapped optional string.
+    print(sasukeAssumedString + sasukeImplicitString)
+    // String
+    print(type(of:sasukeAssumedString + sasukeImplicitString))
+
+    // An implicitly unwrapped optional string.An implicitly unwrapped optional string.
+    print(sasukeAssumedString + sasukeAssumedString2)
+    // String
+    print(type(of:sasukeAssumedString + sasukeAssumedString2))
+
+    var temptString1: String! = sasukeAssumedString + sasukeImplicitString
+    print("## temptString1 ##")
+    print(temptString1, type(of: temptString1))
+
+    var temptString2: String = sasukeAssumedString + sasukeAssumedString2
+    print("## temptString2 ##")
+    print(temptString2, type(of: temptString2))
+
+    // Optional("An implicitly unwrapped optional string.")---Optional<String>
+    print(sasukeAssumedString,  type(of: sasukeAssumedString), separator:"---")
+
+    // An implicitly unwrapped optional string.---String
+    print(sasukeImplicitString,  type(of: sasukeImplicitString), separator:"---")
+
+    // Optional("An implicitly unwrapped optional string.")---Optional<String>
+    print(sasukeAssumedString2,  type(of: sasukeAssumedString2), separator:"---")
+
+    print(sasukeAssumedString == sasukeImplicitString) // true
+    print(sasukeAssumedString == sasukeAssumedString2) // true
+    print(sasukeAssumedString != nil) // true
+
+    // An implicitly unwrapped optional.---String
+    print(sasukeAssumedString!, type(of: sasukeAssumedString!), separator: "---") 
+
+    // ERROR: cannot force unwrap value of non-optional type 'String'
+    // print(sasukeAssumedString!!, type(of: sasukeAssumedString!!), separator: "---") 
+
+    // Optional("An implicitly unwrapped optional string.") | Optional<String>
+    sasukeAssumedString = sasukeAssumedString!
+    print(sasukeAssumedString, type(of: sasukeAssumedString), separator: " | ") 
+
+    // Trying to assign value
+    sasukeAssumedString = nil
+    print(sasukeAssumedString) // nil
+
+    sasukeAssumedString = "123"
+    print(sasukeAssumedString) // Optional("123")
+
+    // Optional("123") | Optional<String>
+    sasukeAssumedString = sasukeAssumedString!
+    print(sasukeAssumedString, type(of: sasukeAssumedString), separator: " | ") 
+
+    sasukeAssumedString2 = sasukeAssumedString
+    // Optional("123")---Optional<String>
+    print(sasukeAssumedString2,  type(of: sasukeAssumedString2), separator:"---")
+
+    // 123 || String
+    sasukeImplicitString = sasukeAssumedString
+    print(sasukeImplicitString,  type(of: sasukeImplicitString), separator:" || ")
+
+    var sasukeAssumedString3: String! = sasukeImplicitString
+    // sasukeAssumedString3 Optional("An implicitly unwrapped optional string.")
+    print("sasukeAssumedString3", sasukeAssumedString3)
+
+    var sasukeAssumedString4 = sasukeAssumedString!
+    print(sasukeAssumedString4) // 123
+    print(type(of: sasukeAssumedString4)) // String
+
+    }
+
     static func main() {
         // ============ 1. Declaration ============
         /* /* /* Nested comment */ */ */
@@ -491,5 +568,8 @@ struct Unit1TheBasics {
 
         // CRASH
         // precondition(false, "This is false")
+
+        print("\n============ Test more implicitly unwrap optioanl ============")
+        testImplicitlyUnwrapOptional()
     }
 }
