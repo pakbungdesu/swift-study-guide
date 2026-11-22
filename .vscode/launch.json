@@ -19,6 +19,26 @@
             "target": "Unit1TheBasics",
             "configuration": "release",
             "preLaunchTask": "swift: Build Release Unit1TheBasics (Unit1TheBasics)"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:swift-study-guide}/Unit2BasicOperators",
+            "name": "Debug Unit2BasicOperators (Unit2BasicOperators)",
+            "target": "Unit2BasicOperators",
+            "configuration": "debug",
+            "preLaunchTask": "swift: Build Debug Unit2BasicOperators (Unit2BasicOperators)"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:swift-study-guide}/Unit2BasicOperators",
+            "name": "Release Unit2BasicOperators (Unit2BasicOperators)",
+            "target": "Unit2BasicOperators",
+            "configuration": "release",
+            "preLaunchTask": "swift: Build Release Unit2BasicOperators (Unit2BasicOperators)"
         }
     ]
 }
