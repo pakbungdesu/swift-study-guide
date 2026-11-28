@@ -44,10 +44,10 @@
 * **Safety Wrapper:** An optional (`Int?`) represents either a wrapped value (`Optional(38)`) or `nil` (absence of a value), such as when `Int("thirty-eight")` fails.
 * **No Direct Operations:** You cannot perform math (`+`) or comparisons (`>`) on optionals until they are unwrapped.
 * **Unwrapping Methods:**
-* **Optional Binding (`if let` / `if var`):** Safely unwraps the value into a temporary local variable inside the `if` block (supports shorthand `if let sasukeAgeInt`).
-* **Early Exit (`guard let`):** Unwraps the value for the rest of the current scope, or exits early via `return` or `fatalError` if `nil`.
-* **Force Unwrapping (`!`):** Extracts the value directly (`narutoAgeInt!`), crashing at runtime if it is `nil`.
-* More rules about unwrapping
+    1. **Optional Binding (`if let` / `if var`):** Safely unwraps the value into a temporary local variable inside the `if` block (supports shorthand `if let sasukeAgeInt`).
+    2. **Early Exit (`guard let`):** Unwraps the value for the rest of the current scope, or exits early via `return` or `fatalError` if `nil`.
+    3. **Force Unwrapping (`!`):** Extracts the value directly (`narutoAgeInt!`), crashing at runtime if it is `nil`.
+* **More rules about unwrapping:**
     1. **Under the hood, it is always `Optional<String>` (until forced into a `String`)**
         * Checking `type(of: sasukeAssumedString)` always returns `Optional<String>` (there is no longer a separate `ImplicitlyUnwrappedOptional` type).
         * When passed into a function that accepts `Any` parameters, such as `print(...)`, it does not auto-unwrap and instead prints as `Optional("...")`.
