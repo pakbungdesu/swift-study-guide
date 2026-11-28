@@ -39,6 +39,46 @@
             "target": "Unit2BasicOperators",
             "configuration": "release",
             "preLaunchTask": "swift: Build Release Unit2BasicOperators (Unit2BasicOperators)"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:swift-study-guide}/Unit3StringAndCharacters\\MyCLI",
+            "name": "Debug Unit3StringAndCharacters (Unit3StringAndCharacters\\MyCLI)",
+            "target": "Unit3StringAndCharacters",
+            "configuration": "debug",
+            "preLaunchTask": "swift: Build Debug Unit3StringAndCharacters (Unit3StringAndCharacters\\MyCLI)"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:swift-study-guide}/Unit3StringAndCharacters\\MyCLI",
+            "name": "Release Unit3StringAndCharacters (Unit3StringAndCharacters\\MyCLI)",
+            "target": "Unit3StringAndCharacters",
+            "configuration": "release",
+            "preLaunchTask": "swift: Build Release Unit3StringAndCharacters (Unit3StringAndCharacters\\MyCLI)"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:swift-study-guide}/Unit3StringAndCharacters",
+            "name": "Debug Unit3StringAndCharacters (Unit3StringAndCharacters)",
+            "target": "Unit3StringAndCharacters",
+            "configuration": "debug",
+            "preLaunchTask": "swift: Build Debug Unit3StringAndCharacters (Unit3StringAndCharacters)"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:swift-study-guide}/Unit3StringAndCharacters",
+            "name": "Release Unit3StringAndCharacters (Unit3StringAndCharacters)",
+            "target": "Unit3StringAndCharacters",
+            "configuration": "release",
+            "preLaunchTask": "swift: Build Release Unit3StringAndCharacters (Unit3StringAndCharacters)"
         }
     ]
 }
